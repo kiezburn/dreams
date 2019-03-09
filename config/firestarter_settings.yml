@@ -1,32 +1,32 @@
 defaults: &defaults
-  grant_value_for_currency: 10.0
+  grant_value_for_currency: 3.5
   additional_info: true
-  contact_phone: true
+  contact_phone: false
   description: true
   electricity: true
   light: true
   fire: true
   noise: true
-  nature: false
-  moop: false
+  nature: true
+  moop: true
   plan: false
   cocreation: true
   neighbors: true
-  recycling: false
+  recycling: true
   budgetplan: true
   seeking_members: true
   granting: true
   # Only people with "Ticket records of phone and email can register"
-  user_authentication_codes: <%= ENV['USER_AUTHENTICATION_CODES'] or false %>
-  user_authentication_vs_tixwise: true
+  user_authentication_codes: false #<%= ENV['USER_AUTHENTICATION_CODES'] or false %>
+  user_authentication_vs_tixwise: false
   add_to_list: true
   granting_active: true
   footer_text: true
-  footer_logo: false
+  footer_logo: true
   creation_sidebar_welcome: true
   safetybag: false
-  person_early_arrival:  <%= ENV['PERSON_EARLY_ARRIVAL'] or false %>
-  person_has_ticket:  <%= ENV['PERSON_HAS_TICKET'] or false %>
+  person_early_arrival: <%= ENV['PERSON_EARLY_ARRIVAL'] or false %>
+  person_has_ticket: <%= ENV['PERSON_HAS_TICKET'] or false %>
   multi_lang_support: <%= ENV['MULTI_LANG_SUPPORT'] or false %>
   disable_open_new_dream: <%= ENV['disable_open_new_dream'] or false %>
   disable_edit_safetybag: <%= ENV['disable_edit_safetybag'] or false %>

@@ -25,25 +25,32 @@ en:
   public: Public
   private: Private
   humans_credit_html: The dreams platform started at Borderland, from there it reached
-    the Middle east to Midburnerot, Midburn and is now part of Metaburn<br>Here are the humans who made
+    the Middle east to Kiez Burnerot, Kiez Burn and is now part of Kiez Burn<br>Here are the humans who made
     the dreams platform possible (Refresh the page, Swipe to shuffle, Or use the arrow
     keys)
   welcome_guest_title: Welcome to our Dreams
   welcome_guest_text_html: Congratulations! You've stumbled upon something special!
-    <b>Metaburn</b> is some awesome fucking shit. We dream together and breathe life
+    <b>Kiez Burn</b> is some awesome fucking shit. We dream together and breathe life
     into our mad and wondrous creations. Dreams need matter to come to life, and this
     is where we share resources to make that happen.
-  welcome_user_title: Welcome to your Dreams!
-  welcome_user_text_html: Metaburn Dreams is a directory of our collective imagination.
+  welcome_user_title: Welcome to the Kiez Burn Dreams!
+  welcome_user_text_html: Kiez Burn Dreams is a directory of our collective imagination.
     We dream together and breathe life into our mad and wondrous creations. Dreams
     need matter to come to life, and this is where we share resources to make that
-    happen. Have a look around or create a dream of your own!
+    happen. Have a look around or create a dream of your own! 
+    <br/><br/>
+    Dream submissions start
+    on 10th of March, voting starts on the 1st of April and we foresee to close the the dreams
+    submissions on 30th of April. The sooner you submit your dream, the more chance you have
+    of collecting all the votes you want.
+    <br/><br/><a href="https://talk.kiezburn.org/join/group/1AEwjJZFtwW6a4qSLUCwmwLa/">Join the discussion here</a>   
+
   header_faq_link: Did you already read our FAQ page?
-  footer_left_html: Metaburn is a participatory community where we co-create events
+  footer_left_html: Kiez Burn is a participatory community where we co-create events
     and gatherings as prototypes of our dreams. It is an empty container, open to
     your initiative. It is an invitation to play, to reflect, and to engage.
-  footer_right_html: Metaburn
-  footer_html: This platform was originally written by Borderlings and Midburners. Dreams is
+  footer_right_html: Kiez Burn
+  footer_html: This platform was originally written by Borderlings, Midburners and Kiez Burners. Dreams is
     <a href='https://github.com/metaburn/dreams'>open
     source</a> and served with <span>❤</span> by the <a href='/pages/humans'>Humans
     who made the system</a>.
@@ -108,43 +115,48 @@ en:
   form_project_management_dream_pre_construction_site_guidetext_html: Where will you build your art installation, prior to arriving at the Playa?
   form_description_label: Full description of the concept
   form_description_guidetext_html: Give a full physical and conceptual description,
-    including interactivity how it will fit into Midburn community. You've got 4096
+    including interactivity how it will fit into Kiez Burn community. You've got 4096
     characters. Make them count.
   form_electricity_label: Do you need electricity from the grid? How much in Watts?
-  form_electricity_guidetext_html: If yes, how much approximately are we talking in
-    Watt?
+  form_electricity_guidetext_html: 'Electricity at our new site is a limited resource. Will you need it? Will you provide your own? Check 
+    if your piece needs power. Please note that power requirements heavily influence placement. If you want to be where you want to be, 
+    then power independence is powerful. 
+    <br/><br/>
+    Anyways, if you do want power, how much approximately are we talking in Watt? <a href="https://docs.google.com/document/d/1OsJSyFYWSmB129ciOzD0Ydu86Q-VF22ekKL7XMZONb0/edit">Here are some examples of Watt usage.</a> Deadline to enter 
+    this: 30 April. If no power needed, enter “0”'
   form_light_label: Will there be light?
   form_light_guidetext_html: Will The Thing be illuminated during the night (yes please!)?
     How?
   form_fire_label: Will anything burn?
-  form_fire_guidetext_html: Tell us about your plans for dealing with big fire, if
-    you have such.
+  form_fire_guidetext_html: Tell us about your plans for dealing with big fire, if you have such. If you do not enter anything here by end 
+    of april, you will not be allowed to burn anything.
   form_noise_label: What is your audio footprint?
   form_noise_guidetext_html: Are you making any noise?
-  form_nature_label: Warming the place
-  form_nature_guidetext_html: Jerucham lake at this time is a coooolllllddddd place,
-    How is your dream will warm up the participants?
-  form_moop_label: Moop plan (matter out of place)
-  form_moop_guidetext_html: All the little things that should not end up just lying
-    around. What kind of moop (Trash et.c) will you and the participants in your creation
-    create, and how will you deal with that?
-  form_recycling_label: Recycling plan
-  form_recycling_guidetext_html: Where do your materials come from? Are they reusable?
-    What will happen with them after the event?
+  form_nature_label: What’s your ecological footprint?
+  form_nature_guidetext_html: Will your dream cause any major CO² emissions or produce a lot of waste? Tell us about the eco-friendliness of your dream!
+  form_moop_label: How do you plan to Strike the Project?
+  form_moop_guidetext_html: The LNT principle is very important to everyone involved in any Burn, plus more. It is important that you have a plan in place on 
+    removing your project from the Gelände, especially if you need it take into account any dimension changes or extra waste produced. You cannot count on being 
+    able to burn it, as we may have a total fire ban on-site (this isn’t the desert after all)
+  form_recycling_label: Aerial Footprint of your installation
+  form_recycling_guidetext_html: Tell us how big your installation will be so we can make sure to have enough space reserved for you.
   form_plan_label: Team and plan
   form_plan_guidetext_html: What does your team look like and what is your schedule?
   form_cocreation_label: How can other burners co-create with you?
   form_cocreation_guidetext_html: How can someone be a part of this project?
-  form_neighbors_label: Who would your perfect neighbors be?
-  form_neighbors_guidetext_html: What kind of midburners would you like as neighbors?
+  form_neighbors_label: Where would you like to be placed?  
+  form_neighbors_guidetext_html: What kind of Kiez Burners would you like as neighbors?
     Quiet, Deep playa, Near camps, Near sounds camps, Far away from sound camps
 
-  form_artgrants_headline: Art grant information
-  form_artgrants_text_html: <p>If you're not looking for an art grant, leave these fields blank.</p><p>Art grants are given by the Metaburn community. Each Metaburner has 10 art-grants to hand out. You can give all your grants to one project or spread them around. Once a grant has been gifted to a dream, it can't be taken back.</p>
+  form_artgrants_headline: Dreams grant information
+  form_artgrants_text_html: If you're not looking for a dreams grant, leave these fields blank.
+    <br/><br/>
+    Only projects that take place at Kiez Burn qualify. Every 2019 Kiez Burn ticket holder will have 10 dream tokens to hand out to projects of their choice. 
   form_minigrants_realcurrency_label: "Minumum number of grants needed:"
-  form_minigrants_realcurrency_guidetext_html: Necessary minimum budget level, below which you won't get funded.
+  form_minigrants_realcurrency_guidetext_html: Your Minimum is the amount of money you NEED in order to bring the project. Once your project collected 
+    enough votes to pass the minimum threshold, you will be notified, and your project is sure to receive funding. Below this minimum level, you will not receive funding.
   form_maxigrants_realcurrency_label: "Grants needed to fully fund dream:"
-  form_maxigrants_realcurrency_guidetext_html: "How many grants you need to fully fund your project."
+  form_maxigrants_realcurrency_guidetext_html: "Your Maximum is how much you need to realize the perfect version of your project. Any money you receive after having passed the minimum can be used for your project"
   form_budgetplan_label: "Budget overview"
   form_budgetplan_guidetext_html: "How will you use your budget? Describe your costs, not too specific, not too vague, perfectly balanced."
 
@@ -173,7 +185,7 @@ en:
   form_spec_electricity_details_guidetext_html: What objects will require electricity
     in your art installation? Electric systems, computers, lighting, sound, triangle
     toasters etc.
-  form_dream_prop_interactivity_audience_participation_guidetext_html: At Midburn,
+  form_dream_prop_interactivity_audience_participation_guidetext_html: At Kiez Burn,
               the artists are encouraged to break the barriers between the art work and its
               viewers. Please share with us your vision regarding the level in which one could
               interact with the installation or influence it - climbing, touching, operating,
@@ -192,8 +204,8 @@ en:
   form_dream_prop_community_context_desc_guidetext_html: Cooperation during costruction,
               shared events with other communities etc.
   form_dream_prop_theme_annual_desc_guidetext_html: Does the art installation draw its inspiration from the annual "Lucid Dream" theme or supports the ten Burning Man principles?
-  form_dream_scholarship_head: Midburn Art Fund scholarship application
-  form_dream_scholarship_head_desc: 'If you wish to receive a stipend from Midburn''s
+  form_dream_scholarship_head: Kiez Burn Art Fund scholarship application
+  form_dream_scholarship_head_desc: 'If you wish to receive a stipend from Kiez Burn''s
     Art Fund, please fill in the following fields. This information will be added
     to any other information entered so far, and will be forwarded to the Art Fund
     for evaluation. Please take into consideration that detail and depth are key to
@@ -313,7 +325,7 @@ en:
     less (this description will be the one to appear on the event's program booklet)
   form_program_activity: A special activity, show, ceremony or anything you may have
     in line regarding the art installation during the event to which you may want
-    to invite the inhabitatns of Midburn
+    to invite the inhabitatns of Kiez Burn
   form_program_activity_desc: Please specidy the day, time, name of activity and wether
     it is a single activity or a reoccuring one
   form_congratulations_html: Congrads. You've reached your "lowest". From here you can only fly up.
@@ -392,7 +404,7 @@ en:
     now or save and continue adding info in the future
   what_is_this_title: What is this?
   what_is_this_text_html: Congratulations! You've stumbled upon something special.
-    Metaburn is a platform that allows you to share your dreams.
+    Kiez Burn is a platform that allows you to share your dreams.
   creation_info_headline: Details
   next_random_dream: Next random dream
   contact_name: Contact Name
@@ -611,7 +623,7 @@ en:
         dreamprop_interactivity_is_fire_event: Burning of the installation
         dreamprop_interactivity_fire_event_desc: 'Details of burning '
         dreamprop_community_is_installation_present_for_event: The installation was
-          made expecially for Midburn
+          made expecially for Kiez Burn
         dreamprop_community_is_installation_present_for_public: The installation is
           planned for public space
         dreamprop_community_is_context: Communal connectivity
@@ -737,11 +749,11 @@ en:
           dreamprop_community_is_installation_present_for_public: Are you planning
             to exhibit your work in any public place after the event?
           dreamprop_community_is_context: Do you have connections to the community,
-            except for Midburn, before or after the event?
+            except for Kiez Burn, before or after the event?
           dreamprop_community_is_interested_in_publicity: In case there will be a
             chance of exhibiting your work in public/ at a festival/ or at another
-            Midburn event, will you be interested in doing so?
-          dreamprop_theme_is_annual: Is your project supporting the Midburn's  theme
+            Kiez Burn event, will you be interested in doing so?
+          dreamprop_theme_is_annual: Is your project supporting the Kiez Burn's  theme
             of the year?
           spec_is_electricity: Will your installation need electricity?
           spec_electricity_is_daytime: Will it need electricity at day time?

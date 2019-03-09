@@ -78,6 +78,14 @@
       %blockquote
         = best_in_place_if @can_edit, @camp, :en_subtitle, html_attrs: {maxlength: 255, class: "form-control"},as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
+  .combo#description
+    - if Rails.configuration.x.firestarter_settings["description"]
+      = form.label t("form_description_label")
+      .field-description
+        = t("form_description_guidetext_html")
+      %blockquote
+        = best_in_place_if @can_edit, @camp, :description, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
+
   .combo#contact_name
     = form.label t("form_creator_name_label")
     .field-description
@@ -113,14 +121,6 @@
     = form.label t("form_dream_website_label")
     %blockquote  
       = best_in_place_if @can_edit, @camp, :website, html_attrs: {maxlength: 512, class: "form-control"}, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
-
-  .combo#description
-    - if Rails.configuration.x.firestarter_settings["description"]
-      = form.label t("form_description_label")
-      .field-description
-        = t("form_description_guidetext_html")
-      %blockquote
-        = best_in_place_if @can_edit, @camp, :description, html_attrs: {maxlength: 4096, class: "form-control"}, as: :textarea, display_with: :simple_format, place_holder: t(:form_click_to_edit_html)
 
   .combo#electricity
     - if Rails.configuration.x.firestarter_settings["electricity"]
