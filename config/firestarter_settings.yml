@@ -14,6 +14,7 @@ defaults: &defaults
   neighbors: true
   recycling: true
   budgetplan: true
+  water: true
   seeking_members: true
   granting: true
   # Only people with "Ticket records of phone and email can register"
