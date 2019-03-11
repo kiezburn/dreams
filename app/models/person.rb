@@ -3,6 +3,8 @@ class Person < ActiveRecord::Base
   has_and_belongs_to_many :roles
 
   validates :name, presence: true
+  validates :email, presence: true
+  validates :phone_number, presence: true
 
   schema_validations whitelist: [:id, :created_at, :updated_at, :camp]
 

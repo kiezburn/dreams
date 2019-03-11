@@ -32,6 +32,15 @@ class Camp < ActiveRecord::Base
   validates :maxbudget_realcurrency, :numericality => { :greater_than_or_equal_to => 0 }, allow_blank: true
   validates_with CanCreateNewDreamValidator, :on => :create
 
+  ## Start Kiezburn Requirements
+  validates :budgetplan, presence: true
+  validates :electricity, presence: true
+  validates :fire, presence: true
+  validates :noise, presence: true
+  validates :neighbors, presence: true
+  validates :water, presence: true
+  ## End Kiezburn Requirements
+
   filterrific(
     default_filter_params: { sorted_by: 'updated_at_desc' },
     available_filters: [
