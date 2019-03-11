@@ -371,3 +371,10 @@
     %blockquote
       = best_in_place_if @can_edit, @camp, :maxbudget_realcurrency, html_attrs: {maxlength: 6, class: "form-control"}, place_holder: t(:form_click_to_edit_html), display_with: :number_to_currency, :helper_options => {:unit => "", precision:0}
       
+  - if Rails.configuration.x.firestarter_settings["finace_messsage"]
+    .combo#finance_message
+      = form.label t("form_finance_label")
+    .field-description
+      = t("form_finance_guidetext_html"):
+  </div>
+  <% end %>

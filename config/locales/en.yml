@@ -131,6 +131,12 @@ en:
     Give a full physical and conceptual description,
     including interactivity how it will fit into Kiez Burn community. You've got 4096
     characters. Make them count.
+  form_finance_label: IMPORTANT NOTE ABOUT FINANCE
+  form_finance_guidetext_html:
+    Please note, it is very important that you are organized and effective in collecting and handing in your receipts. The Dreams Platform is designed only to recover the costs of materials, NOT time. That means we can only refund the taxable PHYSICAL receipts handed into us in an orderly manner. KEEP ALL RECEIPTS! NO REFUND WITHOUT RECEIPT!
+    If this is difficult/impossible, please reach out to finance immediately (not 2 weeks before the burn of afterwards) by asking in the <a href='https://talk.kiezburn.org/g/SAqXnukc/dreams'>DREAMS Group</a>
+    <br/>
+    There will be further communication about finance later on.
   form_electricity_label: Do you need electricity from the grid? How much in Watts? *
   form_electricity_guidetext_html:
     'Electricity at our new site is a limited resource. Will you need it? Will you provide your own? Check
@@ -664,7 +670,7 @@ en:
         electricity: Electricity
         light: Lighting
         fire: Fire
-        noise: Noice
+        noise: Noise
         nature: "Heating "
         moop: MOOP
         recycling: Recycling
