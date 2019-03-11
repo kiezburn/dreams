@@ -5,7 +5,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=dreams_prod
-      - POSTGRES_PASSWORD=supersafekiezburnpassword1234567890
+      - POSTGRES_PASSWORD="${DB_PASS}"
     volumes:
       - ./pgdata:/var/lib/postgresql/data
   web:
@@ -13,11 +13,9 @@ services:
     #command: bundle exec rails s -e production -p 3000 -b '0.0.0.0'
     environment:
       - SECRET_KEY_BASE=d5c0e5aa28800218042bc353b338ecc96b20b9d2a910ab08e374f0acaf2846fbe383638d6888108f7b3cf96034959ac5a853b6864b24eba99a19ee692531e25e
-      - RAILS_ENV=development
-      - RACK_ENV=development
-      - DATABASE_URL=postgresql://postgres:supersafekiezburnpassword1234567890@db/dreams_prod
-      - MULTI_LANG_SUPPORT=false
-      - CUSTOM_SURVEY=true
+      - RAILS_ENV=production
+      - RACK_ENV=production
+      - DATABASE_URL="postgresql://postgres:${DB_PASS}@db/dreams_prod"
     volumes:
       - .:/dreams
     links:
