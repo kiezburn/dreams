@@ -1,4 +1,4 @@
-class ChangeDefaultIsPublicNo < ActiveRecord::Migration
+class ChangeDefaultIsPublicFalse < ActiveRecord::Migration
     def change
       change_column_default :camps, :is_public, false
     end
