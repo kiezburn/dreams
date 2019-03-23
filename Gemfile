@@ -68,6 +68,8 @@ gem 'font-awesome-sass'
 gem 'google-api-client'
 gem 'rack-timeout'
 
+gem 'rest-client'
+
 gem 'paper_trail'
 
 gem 'schema_validations'
