@@ -1,7 +1,7 @@
 class BurnerTicketsImporter
+  API_URL = 'https://burnertickets.com/BurnerTicketing/API/'
 
-  def initialize(event_url, event_id, api_key)
-    @event_url = event_url
+  def initialize(event_id, api_key)
     @event_id = event_id
     @api_key = api_key
   end
@@ -44,7 +44,7 @@ class BurnerTicketsImporter
 
   def get_ticket_data
     begin
-      response = RestClient.post(@event_url, {'method' => 'GetUsersWithTicketsEventId', 'eventId' => @event_id, 'apiKey' => @api_key})
+      response = RestClient.post(API_URL, {'method' => 'GetUsersWithTicketsEventId', 'eventId' => @event_id, 'apiKey' => @api_key})
       parsedResponse = JSON.parse(response.body)
     rescue SocketError => e
       puts e.message
