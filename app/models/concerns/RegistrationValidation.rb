@@ -9,16 +9,7 @@ module RegistrationValidation
 
   def invite_code_valid
     self.email = self.email.downcase
-    invite_code_local_tickets_valid()
-    # Check if ticket exists in the local database to prevent going to remote server
-    ticket = Ticket.find_by(id_code: self.ticket_id, email: self.email)
-
-    if ticket.present?
-      return
-    end
-  end
-
-  def invite_code_local_tickets_valid
+    
     unless Ticket.exists?(email: self.email)
       self.errors.add(:ticket_id, I18n.t(:invalid_membership_code))
       return
