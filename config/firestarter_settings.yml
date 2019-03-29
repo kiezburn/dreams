@@ -18,7 +18,7 @@ defaults: &defaults
   seeking_members: true
   granting: true
   finace_messsage: true
-  registration_requires_ticket_with_matching_email: true
+  registration_requires_ticket_with_matching_email: false
   add_to_list: true
   granting_active: true
   footer_text: true
