@@ -14,5 +14,5 @@ task :import_burnertickets => [:environment] do
   BurnerTicketsImporter.new(
     ENV['BURNER_TICKETS_EVENT_ID'],
     ENV['BURNER_TICKETS_API_KEY']
-  ).import
+  ).call
 end
