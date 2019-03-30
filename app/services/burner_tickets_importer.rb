@@ -11,7 +11,7 @@ class BurnerTicketsImporter
     counter = 0
     ignoredCounter = 0
     updatedCounter = 0
-    puts "Found " + burnerTickets.length.to_s + " tickets"
+    print_debug("Found #{burnerTickets.length} tickets")
     burnerTickets.each do |burnerTicket|
 
       email = burnerTicket["EmailAddress"].downcase
@@ -20,14 +20,15 @@ class BurnerTicketsImporter
 
       unless Ticket.exists?(id_code: ticket_id)
         counter+=1
-        Ticket.create(id_code: ticket_id, email: email.downcase)
-        puts "Added email: #{email}, BurnerTickets ID: #{userId}, ticket ID: #{ticket_id}" 
+        ticket = Ticket.create(id_code: ticket_id, email: email)
+        send_registration_invite(ticket)
+        print_debug("Added email: #{email}, BurnerTickets ID: #{userId}, ticket ID: #{ticket_id}")
       else
         unless Ticket.exists?(email: email)
-          puts "Found ticket to transfer"
+          print_debug("Found ticket to transfer")
           ticket = Ticket.find_by(id_code: ticket_id)
           ticket.update(email: email)
-          puts "Transferred ticket" + ticket_id + " to " + email
+          print_debug("Transferred ticket #{ticket_id} to #{email}")
           updatedCounter+=1
         else
           ignoredCounter+=1
@@ -35,20 +36,25 @@ class BurnerTicketsImporter
       end
     end
     
-    puts "Added " + counter.to_s + " Tickets to our database"
-    puts "Found " + ignoredCounter.to_s + " Tickets that are already in the database"
-    puts "Transferred " + updatedCounter.to_s + " Tickets to new burners"
+    print_debug("Added #{counter} Tickets to our database")
+    print_debug("Found #{ignoredCounter} Tickets that are already in the database")
+    print_debug("Transferred #{updatedCounter} Tickets to new burners")
   end
 
   private
 
+  def send_registration_invite(ticket)
+    return if User.find_by(email: ticket.email)
+    print_debug("sending mail to #{ticket.email}")
+    UserMailer.registration_invite(ticket).deliver_now
+  end
+
   def get_ticket_data
-    begin
-      response = RestClient.post(API_URL, {'method' => 'GetUsersWithTicketsEventId', 'eventId' => @event_id, 'apiKey' => @api_key})
-      parsedResponse = JSON.parse(response.body)
-    rescue SocketError => e
-      puts e.message
-    end
-    parsedResponse["message"]
-  end 
+    response = RestClient.post(API_URL, {'method' => 'GetUsersWithTicketsEventId', 'eventId' => @event_id, 'apiKey' => @api_key})
+    parsedResponse = JSON.parse(response.body)["message"]
+  end
+
+  def print_debug(message)
+    puts message unless Rails.env.test?
+  end
 end
