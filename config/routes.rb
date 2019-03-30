@@ -24,5 +24,8 @@ Rails.application.routes.draw do
   get '/me' => 'users#me'
   get '/howcanihelp' => 'howcanihelp#index'
   
+  get '/rails/mailers' => "rails/mailers#index"
+  get '/rails/mailers/*path' => "rails/mailers#preview"
+
   get '*unmatched_route' => 'application#not_found'
 end

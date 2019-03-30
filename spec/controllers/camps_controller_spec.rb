@@ -17,6 +17,9 @@ describe CampsController do
         fire: '2 to build and 3 to burn',
         noise: 'The fire consumes everything',
         nature: 'Well - it will burn....',
+        budgetplan: '50 bucks',
+        water: 'one bucket',
+        neighbors: 'will be invited over for snacks',
         contact_email: 'burn@example.com',
         contact_name: camp_leader
     }
@@ -35,7 +38,6 @@ describe CampsController do
 
     it 'creates a camp' do
       post :create, camp: camp_attributes
-
       c = Camp.find_by_contact_name camp_leader
 
       expect( c.name ).to eq 'Burn something'
