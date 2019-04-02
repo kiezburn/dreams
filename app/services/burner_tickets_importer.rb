@@ -22,7 +22,8 @@ class BurnerTicketsImporter
         counter+=1
         ticket = Ticket.create(id_code: ticket_id, email: email)
         send_registration_invite(ticket)
-        print_debug("Added email: #{email}, BurnerTickets ID: #{userId}, ticket ID: #{ticket_id}")
+        allocate_grants_to_existing_user(ticket)
+        print_debug("Added Ticket(email: #{email}, BurnerTickets ID: #{userId}, ticket ID: #{ticket_id})")
       else
         unless Ticket.exists?(email: email)
           print_debug("Found ticket to transfer")
@@ -35,13 +36,22 @@ class BurnerTicketsImporter
         end
       end
     end
-    
+
     print_debug("Added #{counter} Tickets to our database")
     print_debug("Found #{ignoredCounter} Tickets that are already in the database")
     print_debug("Transferred #{updatedCounter} Tickets to new burners")
   end
 
   private
+
+  def allocate_grants_to_existing_user(ticket)
+    existing_user = User.find_by(email: ticket.email)
+    unless existing_user.nil? || existing_user.grants > 0
+      existing_user.grants = ENV['DEFAULT_HEARTS'] || 10
+      existing_user.save
+      print_debug("Allocated #{existing_user.grants} grants to #{ticket.email}")
+    end
+  end
 
   def send_registration_invite(ticket)
     return if User.find_by(email: ticket.email)
