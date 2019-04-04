@@ -18,7 +18,7 @@ defaults: &defaults
   seeking_members: true
   granting: true
   finace_messsage: true
-  registration_requires_ticket_with_matching_email: false
+  registration_requires_ticket_with_matching_email: <%= ENV['REGISTRATION_REQUIRES_TICKET_WITH_MATCHING_EMAIL'] or false %>
   add_to_list: true
   granting_active: true
   footer_text: true
