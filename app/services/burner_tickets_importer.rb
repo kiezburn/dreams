@@ -18,7 +18,7 @@ class BurnerTicketsImporter
       ticket_id = burnerTicket["TicketNumber"]
       userId = burnerTicket["UserId"]
 
-      unless Ticket.exists?(id_code: ticket_id)
+      unless Ticket.exists?(email: email)   # since one email may have many ticket (kids), check per email instead of ticket_id
         counter+=1
         ticket = Ticket.create(id_code: ticket_id, email: email)
         send_registration_invite(ticket)
