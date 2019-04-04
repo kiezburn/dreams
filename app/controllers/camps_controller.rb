@@ -21,6 +21,10 @@ class CampsController < ApplicationController
     ) or return
     @camps = @filterrific.find.page(params[:page])
 
+    if params[:tag]
+      @camps = Camp.tagged_with(params[:tag]).page(params[:page])
+    end
+
     respond_to do |format|
       format.html
       format.js
