@@ -6,7 +6,7 @@ class CampsController < ApplicationController
   before_action :load_lang_detector, only: %i(show index)
 
   def index
-    filter = params[:filterrific] || { sorted_by: 'updated_at_desc' }
+    filter = params[:filterrific] || { sorted_by: 'random' }
     filter[:active] = true
     filter[:not_hidden] = true
 
