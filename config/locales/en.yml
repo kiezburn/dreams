@@ -191,7 +191,7 @@ en:
   form_maxigrants_realcurrency_label: "Grants needed to fully fund dream:"
   form_maxigrants_realcurrency_guidetext_html: "Your Maximum is how much you need to realize the perfect version of your project. Any money you receive after having passed the minimum can be used for your project"
   form_budgetplan_label: "Please add your budget proposal in the box below"
-  form_budgetplan_guidetext_html: "Copy the spreadsheet below, add in your details, and post it in the box below. Please be aware everyone will be able to see your budget. <a href='https://docs.google.com/spreadsheets/d/1KWJooKfqmighRIWuQZl72dqiGuW-13iAXf5IkajbGao/edit?usp=sharing'>Here</a>"
+  form_budgetplan_guidetext_html: "Copy the spreadsheet below, add in your details, and post it in the box below. Please be aware everyone will be able to see your budget. <a href='https://docs.google.com/spreadsheets/d/1KWJooKfqmighRIWuQZl72dqiGuW-13iAXf5IkajbGao/copy'>Here</a>"
 
   form_spec_headline: Technical information and Visibility
   form_spec_guidelines: Please note that in order to complete the registration process you must upload, imaging, sketches and other files via "Upload photos" in the personal area. Requests which fail to meet this criteria will not be considered.
