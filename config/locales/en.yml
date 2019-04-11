@@ -566,6 +566,7 @@ en:
     Your password won't change until you access the link above
     and create a new one.
   cant_send_less_then_one: One cannot send less than 1 grants
+  you_cant_spent_more_than_5_grants: You cannot spend more than 5 grants per Dream
   dream_need_to_have_max_budget:
     Dream needs to have maximum budget. please contact
     dreamer or dream guides

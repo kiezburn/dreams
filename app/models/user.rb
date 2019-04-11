@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :memberships
   has_many :camps, through: :memberships
   has_many :created_camps, class_name: :Camp
+  has_many :created_grants, class_name: :Grant
 
   schema_validations whitelist: [:id, :created_at, :updated_at, :encrypted_password]
 
