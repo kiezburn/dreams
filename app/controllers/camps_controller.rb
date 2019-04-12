@@ -72,8 +72,9 @@ class CampsController < ApplicationController
 
     user_grants_for_camp = Grant.where(camp_id: @camp.id, user_id: current_user.id).
                                     pluck(:amount).sum
-    if ((user_grants_for_camp + granted) > 5)
-      flash[:alert] = t:you_cant_spent_more_than_5_grants
+
+    if ((user_grants_for_camp + granted) > (ENV['DEFAULT_HEARTS'].to_i / 2))
+      flash[:alert] = t:you_cant_spent_more_than_50_percent
       redirect_to camp_path(@camp) and return
     end
 

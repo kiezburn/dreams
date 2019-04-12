@@ -122,7 +122,7 @@ describe CampsController do
       end
     end
 
-    context "too many grants" do
+    context "vote more than 50% of the grants given" do
       describe "vote with 6 grants" do
         let(:grants) { 6 }
 
