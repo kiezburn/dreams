@@ -70,6 +70,14 @@ class CampsController < ApplicationController
       redirect_to camp_path(@camp) and return
     end
 
+    user_grants_for_camp = Grant.where(camp_id: @camp.id, user_id: current_user.id).
+                                    pluck(:amount).sum
+
+    if ((user_grants_for_camp + granted) > (ENV['DEFAULT_HEARTS'].to_i / 2))
+      flash[:alert] = t:you_cant_spent_more_than_50_percent
+      redirect_to camp_path(@camp) and return
+    end
+
     if @camp.maxbudget.nil?
       flash[:alert] = "#{t:dream_need_to_have_max_budget}"
       redirect_to camp_path(@camp) and return
