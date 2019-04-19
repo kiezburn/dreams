@@ -585,6 +585,7 @@ en:
     The Dream you were looking for doesn't exist. Would you like to
     create a new Dream?
   join_dream: Sweet! You just sent your email adress to the creator.
+  tags_saved: Thanks for adding tags!
   join_errors_login: You need to be logged in to add your email to the list.
   join_already_sent: Nice! You've already sent your email to the creator.
   yes_text: Yesss
@@ -836,6 +837,7 @@ en:
   simple_form:
     labels:
       camp:
+        tag_list: Tag list (Comma seperated)
         edit:
           dreamprop_interactivity_is_sound: Does the installation make any sound?
           dreamprop_interactivity_is_fire_present:

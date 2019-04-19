@@ -9,7 +9,9 @@ Rails.application.routes.draw do
       omniauth_callbacks: 'users/omniauth_callbacks',
       registrations: 'users/registrations' 
   }
-  
+
+  get 'tags/:tag', to: 'camps#index', as: :tag
+
   resources :camps, :path => 'dreams' do
     resources :images
     resources :people, only: [:show, :update]
