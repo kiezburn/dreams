@@ -54,7 +54,7 @@
           <div class="tags_container">
             <span class="title"><%=t :tags_header %></span>
             <% Tag.all.each do |tag| %>
-              <a href="/tags/<%=URI.escape(tag.name) %>"><%=tag.name %></a>
+              | <a href="/tags/<%=URI.escape(tag.name) %>"><%=tag.name %></a>
             <% end %>
           </div>
         </div>
