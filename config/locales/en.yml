@@ -586,6 +586,7 @@ en:
     create a new Dream?
   join_dream: Sweet! You just sent your email adress to the creator.
   tags_saved: Thanks for adding tags!
+  tags_header: Filter by tag
   join_errors_login: You need to be logged in to add your email to the list.
   join_already_sent: Nice! You've already sent your email to the creator.
   yes_text: Yesss

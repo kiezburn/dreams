@@ -51,6 +51,12 @@
         <div class="form-inline">
           <%= f.check_box(:not_seeking_funding, class: 'filterrific-periodically-observed checkbox') %> 
           <span class="glyphicon glyphicon-eye-close gi-1-5x" aria-hidden="true"></span><span>&nbsp&nbsp <%=t :hide_not_open_for_granting %></span>
+          <div class="tags_container">
+            <span class="title"><%=t :tags_header %></span>
+            <% Tag.all.each do |tag| %>
+              <a href="/tags/<%=URI.escape(tag.name) %>"><%=tag.name %></a>
+            <% end %>
+          </div>
         </div>
         <%= render_filterrific_spinner %>
 
