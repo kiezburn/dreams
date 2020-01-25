@@ -37,7 +37,7 @@ gem 'omniauth-saml'
 gem 'haml'
 
 # Admin backend
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', '~>2.0.0'
 gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'
