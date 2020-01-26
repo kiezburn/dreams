@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   root 'camps#index'
-
   c = Rails.application.config.x.firestarter_settings # TODO ?
   if c['saml_enabled']
     devise_for :users, :skip => [ :registrations ],
@@ -17,9 +16,14 @@ Rails.application.routes.draw do
                  registrations: 'users/registrations'
                }
   else
-    devise_for :users
+    devise_for :users,
+      controllers: { 
+        omniauth_callbacks: 'users/omniauth_callbacks',
+        registrations: 'users/registrations' 
+    }
   end
 
+  get 'tags/:tag', to: 'camps#index', as: :tag
 
   resources :camps, :path => 'dreams' do
     resources :images
@@ -44,5 +48,8 @@ Rails.application.routes.draw do
   get '/howcanihelp' => 'howcanihelp#index'
   get '/guideview' => 'guideview#index'
   
+  get '/rails/mailers' => "rails/mailers#index"
+  get '/rails/mailers/*path' => "rails/mailers#preview"
+
   get '*unmatched_route' => 'application#not_found'
 end

@@ -29,7 +29,7 @@
 
   &:before,
   &:after {
-    content: "";
+    content: '';
     line-height: 0;
     clear: both;
   }
@@ -208,16 +208,16 @@ $heart-size: 72px;
   .donate-value {
     display: inline-block;
     width: 70px;
-    margin: 0 .5em;
+    margin: 0 0.5em;
   }
 
-  .coins-left  {
+  .coins-left {
     line-height: 2em;
   }
 
   .donate-now-button {
     background: $c-donate-color;
-    width:100%;
+    width: 100%;
 
     &:active {
       background: darken($c-donate-color, 15%) !important;
@@ -241,133 +241,131 @@ $heart-size: 72px;
 
   #heart1 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.gif");
+    background: no-repeat center image-url('hearts/heart_default.gif');
 
     &:hover {
-      background: no-repeat center image-url("hearts/heart_hover.gif");
+      background: no-repeat center image-url('hearts/heart_hover.gif');
       background-size: $heart-size $heart-size;
     }
 
     &:active {
-      background: no-repeat center image-url("hearts/heart_selected.gif");
+      background: no-repeat center image-url('hearts/heart_selected.gif');
       background-size: $heart-size $heart-size;
     }
   }
   #heart2 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.gif");
+    background: no-repeat center image-url('hearts/heart_default.gif');
     &:hover {
-      background: no-repeat center image-url("hearts/heart_hover.gif");
+      background: no-repeat center image-url('hearts/heart_hover.gif');
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_selected.gif");
+      background: no-repeat center image-url('hearts/heart_selected.gif');
       background-size: $heart-size $heart-size;
     }
   }
   #heart3 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.gif");
+    background: no-repeat center image-url('hearts/heart_default.gif');
     &:hover {
-      background: no-repeat center image-url("hearts/heart_hover.gif");
+      background: no-repeat center image-url('hearts/heart_hover.gif');
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_selected.gif");
+      background: no-repeat center image-url('hearts/heart_selected.gif');
       background-size: $heart-size $heart-size;
     }
   }
   #heart4 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.gif");
+    background: no-repeat center image-url('hearts/heart_default.gif');
     &:hover {
-      background: no-repeat center image-url("hearts/heart_hover.gif");
+      background: no-repeat center image-url('hearts/heart_hover.gif');
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_selected.gif");
+      background: no-repeat center image-url('hearts/heart_selected.gif');
       background-size: $heart-size $heart-size;
     }
   }
   #heart5 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.gif");
+    background: no-repeat center image-url('hearts/heart_default.gif');
     &:hover {
-      background: no-repeat center image-url("hearts/heart_hover.gif");
+      background: no-repeat center image-url('hearts/heart_hover.gif');
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_selected.gif");
+      background: no-repeat center image-url('hearts/heart_selected.gif');
       background-size: $heart-size $heart-size;
     }
   }
   #heart6 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.gif");
+    background: no-repeat center image-url('hearts/heart_default.gif');
     &:hover {
-      background: no-repeat center image-url("hearts/heart_hover.gif");
+      background: no-repeat center image-url('hearts/heart_hover.gif');
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_selected.gif");
+      background: no-repeat center image-url('hearts/heart_selected.gif');
       background-size: $heart-size $heart-size;
     }
   }
   #heart7 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.gif");
+    background: no-repeat center image-url('hearts/heart_default.gif');
     &:hover {
-      background: no-repeat center image-url("hearts/heart_hover.gif");
+      background: no-repeat center image-url('hearts/heart_hover.gif');
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_selected.gif");
+      background: no-repeat center image-url('hearts/heart_selected.gif');
       background-size: $heart-size $heart-size;
     }
   }
   #heart8 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.gif");
+    background: no-repeat center image-url('hearts/heart_default.gif');
     &:hover {
-      background: no-repeat center image-url("hearts/heart_hover.gif");
+      background: no-repeat center image-url('hearts/heart_hover.gif');
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_selected.gif");
+      background: no-repeat center image-url('hearts/heart_selected.gif');
       background-size: $heart-size $heart-size;
     }
   }
   #heart9 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.gif");
+    background: no-repeat center image-url('hearts/heart_default.gif');
     &:hover {
-      background: no-repeat center image-url("hearts/heart_hover.gif");
+      background: no-repeat center image-url('hearts/heart_hover.gif');
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_selected.gif");
+      background: no-repeat center image-url('hearts/heart_selected.gif');
       background-size: $heart-size $heart-size;
     }
   }
   #heart10 {
     @extend .heart;
-    background: no-repeat center image-url("hearts/heart_default.gif");
+    background: no-repeat center image-url('hearts/heart_default.gif');
     &:hover {
-      background: no-repeat center image-url("hearts/heart_hover.gif");
+      background: no-repeat center image-url('hearts/heart_hover.gif');
       background-size: $heart-size $heart-size;
     }
     &:active {
-      background: no-repeat center image-url("hearts/heart_selected.gif");
+      background: no-repeat center image-url('hearts/heart_selected.gif');
       background-size: $heart-size $heart-size;
     }
   }
-
-
 }
 
 .heartSelected {
   @extend .heart;
-  background: no-repeat center image-url("hearts/heart_selected.gif") !important;
+  background: no-repeat center image-url('hearts/heart_selected.gif') !important;
   background-size: $heart-size $heart-size !important;
 }
 
@@ -383,7 +381,7 @@ $heart-size: 72px;
   text-align: center;
 
   img {
-    vertical-align:top;
+    vertical-align: top;
   }
 
   margin-bottom: 1em;
@@ -401,10 +399,10 @@ $heart-size: 72px;
   height: $heart-size;
   position: relative;
 
-  -webkit-transition: all 1.2s ease;  
-  -moz-transition: all 1.2s ease;  
-  -o-transition: all 1.2s ease;  
-  -ms-transition: all 1.2s ease;  
+  -webkit-transition: all 1.2s ease;
+  -moz-transition: all 1.2s ease;
+  -o-transition: all 1.2s ease;
+  -ms-transition: all 1.2s ease;
   transition: all 1.2s ease;
 }
 
@@ -518,7 +516,7 @@ div label input {
 }
 
 .edit {
-  padding-top: 7px; 
+  padding-top: 7px;
   padding-right: 7px;
   position: absolute;
   right: 0;
@@ -589,11 +587,11 @@ body {
     margin: -6px;
   }
 
-   .disabledHeart {
+  .disabledHeart {
     margin: -6px;
   }
 
-   .heartSelected {
+  .heartSelected {
     margin: -6px;
   }
 }
@@ -716,8 +714,8 @@ body {
 }
 
 // needs refactoring
-.list-view-toggle{
-  .toggle-label{
+.list-view-toggle {
+  .toggle-label {
     position: absolute;
     right: 70px;
     margin-top: 37px;
@@ -731,15 +729,13 @@ body {
     width: 60px;
     height: 34px;
   }
-  
-  
+
   /* Hide default HTML checkbox */
-  
+
   .switch input {
     display: none;
   }
-  
-  
+
   /* The slider */
   .slider {
     position: absolute;
@@ -749,31 +745,31 @@ body {
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
   }
-  
+
   .slider:before {
     position: absolute;
-    content: "";
+    content: '';
     height: 26px;
     width: 26px;
     left: 4px;
     bottom: 4px;
     background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
   }
-  
-  input:checked+.slider {
+
+  input:checked + .slider {
     background-color: $c-pinky;
   }
-  
-  input:focus+.slider {
+
+  input:focus + .slider {
     box-shadow: 0 0 1px $c-pinky;
   }
-  
-  input:checked+.slider:before {
+
+  input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
@@ -791,22 +787,22 @@ body {
 }
 
 #table-view {
-  display:none;
+  display: none;
   margin: 0 auto;
   margin-top: 40px;
 
   th {
     text-align: center;
   }
-  
+
   td {
     margin: 20px;
     padding: 10px;
     text-align: center;
     width: 200px;
     border-left: 1px solid #ccc;
-  
-    a{
+
+    a {
       display: block;
       width: 100%;
     }
@@ -815,6 +811,13 @@ body {
 
 .card {
   .edit_camp {
-  margin-top: -20px;
+    margin-top: -20px;
+  }
+}
+.tags_container {
+  margin-top: 2em;
+  .title {
+    font-size: larger;
+    display: block;
   }
 }

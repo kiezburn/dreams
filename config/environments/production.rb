@@ -83,15 +83,22 @@ Rails.application.configure do
   # needed for urls in mails
   Rails.application.routes.default_url_options[:host] = ENV['APP_URL']
 
-  # S3 config
+  # Uploads config
   config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => ENV['S3_BUCKET_NAME'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
-      :s3_region => ENV['AWS_REGION']
-    },
+    :storage => :filesystem
+  }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => ENV['DOMAIN'] }
+  config.action_mailer.asset_host = ENV['DOMAIN']
+
+  config.action_mailer.smtp_settings = {
+      :address              => ENV['SMTP_ADDRESS'],
+      :port                 => ENV['SMTP_PORT'],
+      :authentication       => :plain,
+      :user_name            => ENV['SMTP_USERNAME'],
+      :password             => ENV['SMTP_PASSWORD'],
+      :enable_starttls_auto => true
   }
 end
 

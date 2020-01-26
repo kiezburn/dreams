@@ -69,6 +69,8 @@ gem 'font-awesome-sass'
 gem 'google-api-client'
 gem 'rack-timeout'
 
+gem 'rest-client'
+
 gem 'paper_trail'
 
 gem 'schema_validations'
@@ -111,14 +113,13 @@ group :development, :test do
   gem 'sqlite3', '~> 1.3.1'
   # For environment vars
   gem 'dotenv-rails'
+  # caches various things so rails commands load faster
+  gem 'bootsnap', require: false
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '~> 1.6.4'
 
   # Use rspec for testing the thing
   gem 'rspec-rails'
@@ -131,5 +132,7 @@ group :development do
 
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', '~> 0.4.0', group: :doc
-end
 
+  # mails sent in dev mode get displayed in new browser window 
+  gem "letter_opener"
+end

@@ -118,7 +118,7 @@
 
     <% if current_user && (@camp.creator == current_user || current_user.is_crewmember(@camp)) %>
         <%= render 'camps/dont_miss_out', except: nil %>
-      <% end %>
+    <% end %>
 
     <!-- Creation text content -->
         <div class="camp-description">
@@ -142,7 +142,18 @@
             </div>
         <% end %>
 
-        <% if app_setting("plan") and @camp.plan.present? %>
+        <% if @camp.tags.any? %>
+          <div class="camp-tags">
+            <b><%=t :form_tags %></b>
+            <ul>
+              <%- @camp.tags.each do |tag| %>
+                <li><%= link_to tag.name, tag_path(tag.name) %></li>
+              <%- end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <% if Rails.configuration.x.firestarter_settings["plan"] and @camp.plan.present? %>
             <div class="camp-description">
                 <b><%=t :form_plan_label %></b>
                 <%= simple_format(@camp.plan, class: "auto-#{@detector.direction(@camp.plan)}" ) %>

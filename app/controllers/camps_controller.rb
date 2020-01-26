@@ -11,6 +11,29 @@ class CampsController < ApplicationController
   before_action :load_lang_detector, only: [:show, :index]
 
   def index
+    filter = params[:filterrific] || { sorted_by: 'random' }
+    filter[:active] = true
+    filter[:not_hidden] = true
+
+    if (!current_user.nil? && (current_user.admin? || current_user.guide?))
+      filter[:hidden] = true
+      filter[:not_hidden] = false
+    end
+
+    @filterrific = initialize_filterrific(
+      Camp,
+      filter
+    ) or return
+    @camps = @filterrific.find.page(params[:page])
+
+    if params[:tag]
+      @camps = Camp.tagged_with(params[:tag]).page(params[:page])
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new
@@ -46,17 +69,44 @@ class CampsController < ApplicationController
   end
 
   def update_grants
-    @camp.grants.build(user: current_user, amount: granted)
-    @camp.assign_attributes(
-      minfunded:   (@camp.grants_received + granted) >= @camp.minbudget,
-      fullyfunded: (@camp.grants_received + granted) >= @camp.maxbudget
-    )
+    # Reduce the number of grants assigned to the current user by the number
+    # of grants given away. Increase the number of grants assigned to the
+    # camp by the same number of grants.
+    # Decrement user grants. Check first if granting more than needed.
+    granted = params['grants'].to_i
 
-    if @camp.save
-      current_user.update(grants: current_user.grants - granted)
-      flash[:notice] = t(:thanks_for_sending, grants: granted)
-    else
-      flash[:error] = t(:errors_str, message: @camp.errors.full_messages.uniq.join(', '))
+    if(granted <= 0)
+      flash[:alert] = "#{t:cant_send_less_then_one}"
+      redirect_to camp_path(@camp) and return
+    end
+
+    user_grants_for_camp = Grant.where(camp_id: @camp.id, user_id: current_user.id).
+                                    pluck(:amount).sum
+
+    if ((user_grants_for_camp + granted) > (ENV['DEFAULT_HEARTS'].to_i / 2))
+      flash[:alert] = t:you_cant_spent_more_than_50_percent
+      redirect_to camp_path(@camp) and return
+    end
+
+    if @camp.maxbudget.nil?
+      flash[:alert] = "#{t:dream_need_to_have_max_budget}"
+      redirect_to camp_path(@camp) and return
+    end
+
+    if @camp.grants_received + granted > @camp.maxbudget
+      granted = @camp.maxbudget - @camp.grants_received
+    end
+
+    @grants_received_by_this_user = Grant.received_for_camp_by_user(@camp.id, current_user.id)
+
+    if !current_user.admin && @grants_received_by_this_user + granted > Grant.max_per_user_per_dream
+      flash[:alert] = "#{t:exceeds_max_grants_per_user_for_this_dream, max_grants_per_user_per_dream: Grant.max_per_user_per_dream}"
+      redirect_to camp_path(@camp) and return
+    end
+
+    if current_user.grants < granted
+      flash[:alert] = "#{t:security_more_grants, granted: granted, current_user_grants: current_user.grants}"
+      redirect_to camp_path(@camp) and return
     end
 
     redirect_to camp_path(@camp)
