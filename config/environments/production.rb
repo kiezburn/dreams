@@ -1,7 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.force_ssl = true
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -84,7 +83,7 @@ Rails.application.configure do
   Rails.application.routes.default_url_options[:host] = ENV['APP_URL']
 
   # Uploads config
-  config.paperclip_defaults = {
+  config.paperclip_defaults = { 
     :storage => :filesystem
   }
 
