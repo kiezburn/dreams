@@ -37,15 +37,6 @@ $(function() {
     $('.create-new-dream').css('cursor', 'wait');
     $('#createDreamForm').submit();
     $('.loading-new-dream').fadeIn();
-    setInterval(function() {
-      $('.loading-new-dream').fadeOut('fast', function() {
-        $(this)
-          .text(
-            'זה לרוב לוקח כ-8 שניות. קח נשימה עמוקה בזמן שאנחנו מכינים את הפלאייה עבורך. יוצרים לך תיקייה בדרייב ומסנכרנים...',
-          )
-          .fadeIn('fast');
-      });
-    }, 4000);
   });
 
   $(document).ready(function() {
