@@ -67,7 +67,6 @@ gem 'simple_form'
 gem 'jquery-turbolinks'
 gem 'font-awesome-sass'
 gem 'google-api-client'
-gem 'rack-timeout'
 
 gem 'rest-client'
 
