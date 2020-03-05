@@ -9,7 +9,7 @@
 <% end %>
 
 <div class='me'>
-    <%= render :partial => 'users/your_space'  %>
-    <%= render :partial => 'users/favorites', locals: { camps: @camps, user: @user } %>
+    <%= render 'users/your_space'  %>
+    <%= render 'users/favorites', camps: @camps, user: @user %>
 </div>
 

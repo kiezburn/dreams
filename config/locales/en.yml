@@ -54,9 +54,9 @@ en:
         We hope to have a final decision on Dreams by 7 May</div>
     <br><br>
     There is a video tutorial on <a href="https://www.youtube.com/watch?v=S0cI1fhLoRc" target="_blank">How to use Dreams</a>. You can find more information about Kiez Burn in <a href="https://talk.kiezburn.org/">our Forum</a> and <a href="https://kiezburn.org/">our website</a>.
-  welcome_user_title: Welcome to the Kiez Burn Dreams!
+  welcome_user_title: Welcome to the Kiez Burn Dreams Project!
   welcome_user_text_html:
-    <i>tldr&colon; vote on Art Projects to make them come true at Kiez Burn</i>
+    <i>Vote on Art Projects to make them come true at Kiez Burn</i>
     <br><br>
     <i>Kiez Burn Dreams</i> is a directory of our collective imagination.
     We dream together and breathe life into our mad and wondrous creations. Dreams
@@ -78,7 +78,7 @@ en:
     your initiative. It is an invitation to play, to reflect, and to engage.
   footer_right_html: Kiez Burn
   footer_html:
-    This platform was originally written by Kiezburners, Midburners and Kiez Burners. Dreams is
+    This platform was reated by Kiezburners, Midburners and Borderlanders. Dreams is
     <a href='https://github.com/metaburn/dreams'>open
     source</a> and served with <span>❤</span> by the <a href='/pages/humans'>Humans
     who made the system</a>.
@@ -699,7 +699,7 @@ en:
   registration_code: Phone number
   invalid_membership_code: Can't find a user with that Email / Phone number. make sure you use the same email and phone you used when made the donation
   membership_code_registered: Membership code is already registered for another user. Perhaps you want to Login
-  thanks_for_sending: "Thanks for sending %{grants} grant(s)"
+  thanks_for_sending: "Thanks for sending %{grants}"
   reset_pass_hello: Hey
   reset_pass_link_text: Someone has requested a link to change your password. You can do this through the link below.
   reset_pass_didnt: "If you didn't request this, please ignore this email."

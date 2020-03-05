@@ -1,5 +1,5 @@
 <% if current_user == @user %>
-<div class="profile col-md-5 col-xs-12" dir="<%=t :html_direction %>" style="float: <%=t :lang_direction%>">
+<div class="profile col-md-6 col-xs-12" dir="<%=t :html_direction %>" style="float: <%=t :lang_direction%>">
   <div class="panel panel-default">
     <div class="panel-heading">
       <h1><%=t(:your_space) %></h1>
@@ -36,8 +36,10 @@
         <% end %>
         <br><br>
 
-        <b><%=t :dreams_you_help_make %></b>:
-        <% Grant.where(user: current_user).each do |grant| %>
+        <% if current_user.created_grants.any? %>
+          <b><%=t :dreams_you_help_make %></b>:
+        <% end %>
+        <% current_user.created_grants.each do |grant| %>
           <p>
             <%= link_to grant.camp.name, camp_path(grant.camp) %><br>
             <span class="glyphicons glyphicons-coins"></span>
