@@ -1,6 +1,7 @@
 class CampsController < ApplicationController
   include CanApplyFilters
   include AuditLog
+  include ActionView::Helpers::TextHelper
 
   before_action :apply_filters, only: :index
   before_action :authenticate_user!, except: [:show, :index]
@@ -109,54 +110,36 @@ class CampsController < ApplicationController
       redirect_to camp_path(@camp) and return
     end
 
-    redirect_to camp_path(@camp)
-  end
+    ActiveRecord::Base.transaction do
+      current_user.grants -= granted
 
-  # def get_flag_states
-  #   params.permit(:flag_types_list)
-  #   result = []
-  #   params[:flag_types_list].split(',').each do |flag_type|
-  #     result.push(@camp.flag_type_is_raised(flag_type))
-  #   end
-  #   redirect_to camp_path(@camp)
-  # end
+      # Increase camp grants.
+      @camp.grants.new({:user_id => current_user.id, :amount => granted})      
 
-  def create_flag_event
-    incoming_flag_type = params[:flag_type]
-    incoming_flag_value = params[:value]
-    comment = params[:comment]
-    # validate that the flag_event is attempting to change the global state of the
-    # flag and create the event if that's the case
-    if (@camp.flag_type_is_raised(incoming_flag_type).to_s != incoming_flag_value.to_s)
-      FlagEvent.create(flag_type: incoming_flag_type, user: current_user, camp: @camp, value: incoming_flag_value)
+      if @camp.grants_received + granted >= @camp.minbudget
+        @camp.minfunded = true
+      else
+        @camp.minfunded = false
+      end
       
-      if (@camp.creator == current_user)
-        flagger = 'Dreamer'
-      elsif (current_user.is_crewmember(@camp))
-        flagger = 'Crew member '
-      elsif (current_user.admin || current_user.guide)
-        flagger = 'Guide '
+      if @camp.grants_received + granted >= @camp.maxbudget
+        @camp.fullyfunded = true
       else
-        flagger = 'Someone '
+        @camp.fullyfunded = false
       end
-
-      if (incoming_flag_value.to_s == 'true')
-        message_string = flagger + " startled %s monster!" % [incoming_flag_type] 
-      else
-        message_string = flagger + " calmed %s monster." % [incoming_flag_type]
+        
+      unless current_user.save
+        flash[:notice] = "#{t:errors_str}: #{current_user.errors.full_messages.uniq.join(', ')}"
+        redirect_to camp_path(@camp) and return
       end
-
-      if comment != nil
-        final_message = message_string + "\n\n" + comment
+      
+      unless @camp.save
+        flash[:notice] = "#{t:errors_str}: #{@camp.errors.full_messages.uniq.join(', ')}"
+        redirect_to camp_path(@camp) and return
       end
-
-      audit_log(
-        'flag_raised',
-        final_message,
-        @camp
-      )
     end
 
+    flash[:notice] = "#{t:thanks_for_sending, grants: pluralize(granted, 'grant')}"
     redirect_to camp_path(@camp)
   end
 
