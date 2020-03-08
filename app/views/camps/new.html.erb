@@ -8,16 +8,30 @@
   <div class="header-heading col-xs-12" style='float: <%= I18n.t(:lang_direction) %>'>
     <%= t("form_basics_headline") %>
   </div>
+
   <div class="combo col-md-7 col-xs-12" id="name" style='float: <%= I18n.t(:lang_direction) %>'>
-    <%= form.label t("form_dream_name_label") %>
-    <%= form.text_field :name, :maxlength => 64, :class => "form-control" %>
+    <%= form.input :name, label: t("form_dream_name_label"),
+      maxlength: 64, input_html: {class: "form-control"} %>
   </div>
+
+  <div class="combo col-md-7 col-xs-12" id="name">
+    Please assign yourself to a category.
+    You can read more about the categories, why they exist and what they mean <a href='https://talk.kiezburn.org/d/HQmGxOcb/-placeholder-manual-for-dreamers-read-this-if-you-want-to-submit-a-dream'>in
+      the manual</a>.
+    
+    <%= form.fields_for :category do |ff| %>
+      <%= ff.input :name, label: 'category', collection: Category::EXPERIENCE,
+                          maxlength: 64, input_html: {class: "form-control"} %>
+    <% end %>
+  </div>
+
   <% if app_setting("multi_lang_support") %>
     <div class="combo col-md-7 col-xs-12" id="en_name" style='float: <%= I18n.t(:lang_direction) %>'>
       <%= form.label t("form_dream_name_en_label") %>
       <%= form.text_field :en_name, :maxlength => 64, :class => "form-control" %>
     </div>
   <% end %>
+
   <div class="combo col-md-7 col-xs-12" id="subtitle" style='float: <%= I18n.t(:lang_direction) %>'>
     <%= form.label t("form_subtitle_label") %>
     <%= form.text_area :subtitle, :maxlength => 255, :class => "form-control", :rows => 4 %>
@@ -31,30 +45,31 @@
       <%= t("form_subtitle_guidetext_html") %>
     </div>
   <% end %>
+
   <div class="combo col-md-7 col-xs-12" id="contact_name" style='float: <%= I18n.t(:lang_direction) %>'>
     <%= form.label t("form_creator_name_label") %>
     <%= form.text_field :contact_name, :maxlength => 64, :class => "form-control" %>
     <%= t("form_creator_name_guidetext_html") %>
     <br>
   </div>
-  <div>
 
+  <div>
   <% if Rails.configuration.x.firestarter_settings["budgetplan"] %>
-  <div class="combo col-md-7 col-xs-12" id="budgetplan" style='float: <%= I18n.t(:lang_direction) %>'>
-    <%= form.label t("form_budgetplan_label") %>
-    <%= form.text_area :budgetplan, :maxlength => 1024, :class => "form-control" %>
-    <%= t("form_budgetplan_guidetext_html") %>
-    <br>
-  </div>
+    <div class="combo col-md-7 col-xs-12" id="budgetplan" style='float: <%= I18n.t(:lang_direction) %>'>
+      <%= form.label t("form_budgetplan_label") %>
+      <%= form.text_area :budgetplan, :maxlength => 1024, :class => "form-control" %>
+      <%= t("form_budgetplan_guidetext_html") %>
+      <br>
+    </div>
   <% end %>
 
   <% if Rails.configuration.x.firestarter_settings["electricity"] %>
-  <div class="combo col-md-7 col-xs-12" id="electricity" style='float: <%= I18n.t(:lang_direction) %>'>
-    <%= form.label t("form_electricity_label") %>
-    <%= form.text_area :electricity, :maxlength => 1024, :class => "form-control" %>
-    <%= t("form_electricity_guidetext_html") %>
-    <br>
-  </div>
+    <div class="combo col-md-7 col-xs-12" id="electricity" style='float: <%= I18n.t(:lang_direction) %>'>
+      <%= form.label t("form_electricity_label") %>
+      <%= form.text_area :electricity, :maxlength => 1024, :class => "form-control" %>
+      <%= t("form_electricity_guidetext_html") %>
+      <br>
+    </div>
   <% end %>
 
   <% if Rails.configuration.x.firestarter_settings["fire"] %>

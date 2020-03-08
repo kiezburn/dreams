@@ -40,6 +40,7 @@ class CampsController < ApplicationController
   def new
     raise "Na ha! You didn't say the magic word" unless current_user.is_member?
     @camp = Camp.new
+    @camp.build_category
   end
 
   def edit

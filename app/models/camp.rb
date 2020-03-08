@@ -11,7 +11,10 @@ end
 class Camp < ApplicationRecord
   include AppSettings
   extend AppSettings
+
   belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
+  belongs_to :category
+  accepts_nested_attributes_for :category
 
   has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships
@@ -19,14 +22,14 @@ class Camp < ApplicationRecord
   has_many :favorite_users, through: :favorites, source: :user
   has_many :approvals
   has_many :approvers, through: :approvals, source: :user
-  has_many :images #, :dependent => :destroy
+  has_many :images, dependent: :destroy
   has_many :safety_sketches
   has_many :grants
   has_many :people, class_name: 'Person'
   has_many :roles, through: :people
   has_many :flag_events
-  has_many :budget_items 
-  has_many :safety_items 
+  has_many :budget_items
+  has_many :safety_items
 
   has_paper_trail
 
