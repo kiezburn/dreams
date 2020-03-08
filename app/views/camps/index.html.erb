@@ -17,14 +17,10 @@
       <% end %>
     </div>
     <div class="panel-body">
-      <div class="col-md-8">
-        <% if user_signed_in? %>
-          <%=t :welcome_user_text_html %>
-        <% else %>
-          <%=t :welcome_guest_text_html %>
-        <% end %>
+      <div class="col-md-9">
+        <%=t :welcome_guest_text_html %>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <%= form_for_filterrific @filterrific do |f| %>
 
         <div>
@@ -56,15 +52,15 @@
             <span class="title"><%=t :tags_header %></span>
             <%= Tag.pluck(:name).map{|tag| "<a href='/tags/#{URI.escape(tag)}'>#{tag}</a>"}.join(' | ').html_safe %>
           </div>
+          <div class="tags_container">
+            <a href="/">48 random dreams</a>
+            <br />
+            <a href="/guideview">All dreams & stats</a>
+          </div>
         </div>
+
         <%= render_filterrific_spinner %>
-
         <% end %>
-        <style>
-        /* The switch - the box around the slider */
-
-
-        </style>
       </div>
     </div>
   </div>

@@ -34,20 +34,15 @@
   </script>
 <% else %>
   <script>
-    
     $(function() { $(".hide_show_safetyfile").click(function(){
       alert( "Safety file is currrently disabled" );
     })});
-
-
   </script>
 <% end %>
 <script>
-  
   $(function() {
     $("textarea").autoGrow();
   });
-
 </script>
 <br/>
 <br/>
@@ -57,7 +52,7 @@
     <%= t("press_to_edit") %>
   </div>
   <div class="header-heading">
-    <%= t("form_basics_headline") %>
+    <%= t("form_basics_headline_last_step") %>
   </div>
   <div class="combo" id="name">
     <%= form.label t("form_dream_name_label") %>
@@ -103,11 +98,12 @@
     </blockquote>
   </div>
   <div class="combo" id="visability">
-    <%= form.label t("form_dream_visability") %>
+    <h1><%= t("form_dream_visability") %></h1>
     <%= form.radio_button :is_public, true %>
     <%= form.label t("form_dream_visability_yes") %>
+    <br/>
     <%= form.radio_button :is_public, false %>
-    <%= form.label t("form_dream_visability_no") %>
+    <%= form.label :is_public, t("form_dream_visability_no") %>
     <br/>
     <%= t("form_dream_visability_guidetext_html") %>
   </div>
@@ -246,11 +242,9 @@
   </div>
 
   <% if app_setting("granting") %>
-      <br/>
-      <br/>
-      <div class="header-heading">
-          <%= t("form_artgrants_headline") %>
-      </div>
+    <div class="header-heading">
+        <%= t("form_artgrants_headline") %>
+    </div>
   <% end %>
   <div class="combo" id="artgrants"></div>
   <% if app_setting("granting") %>
@@ -283,23 +277,21 @@
     </div>
   <% end %>
   <% if app_setting("granting") and app_setting("budgeting") %>
-      <div class="combo">
-          <%= form.label t("budget_label") %>
-      </div>
-      <div class="field-description">
-          <%= t("form_budgetplan_guidetext_html")    %>
-      </div>
-      <div id="responsibles">
-          <%= form.fields_for :budget_items do |budget_item| %>
-              <%= render 'budget_item_fields', :f => budget_item, :camp_id => @camp.id %>
-          <% end %>
-      </div>
-      <% if @can_edit %>
-          <div class="row links col-xs-12">
-              <%= link_to_add_association t('add_new_budget_item'), form, :budget_items, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-success', id: 'add-new-budget-item' %>
-              <br/>
-              <br/>
-          </div>
-      <% end %>
+    <div class="combo">
+      <%= form.label t("budget_label") %>
+    </div>
+    <%= t("form_budget_help") %>
+    <div id="responsibles">
+        <%= form.fields_for :budget_items do |budget_item| %>
+            <%= render 'budget_item_fields', :f => budget_item, :camp_id => @camp.id %>
+        <% end %>
+    </div>
+    <% if @can_edit %>
+        <div class="row links col-xs-12">
+            <%= link_to_add_association t('add_new_budget_item'), form, :budget_items, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-success', id: 'add-new-budget-item' %>
+            <br/>
+            <br/>
+        </div>
+    <% end %>
   <% end %>
 <% end %>

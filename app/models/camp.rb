@@ -46,7 +46,6 @@ class Camp < ApplicationRecord
   validates_with CanCreateNewDreamValidator, :on => :create
 
   ## Start Kiezburn Requirements
-  validates :budgetplan, presence: true
   validates :electricity, presence: true
   validates :fire, presence: true
   validates :noise, presence: true

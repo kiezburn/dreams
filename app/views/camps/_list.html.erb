@@ -1,39 +1,28 @@
-<div id='grid-view'>
-    <div class="row">
-        <div class="col-md-2">
-            <a href="/" class="btn btn-primary camp-button" role="button">
-                48 random dreams! <span class="glyphicon glyphicon-random vertical-middle" aria-hidden="true"></span>
-            </a>
-        </div>
-        <div class="col-md-2">
-            <a href="/guideview" class="btn btn-info camp-button" role="button">
-                All dreams & stats
-            </a>
-        </div>
+<div id="grid-view">
+  <div id="filterrific_results" class="row">
+    <div class="camps_list">
+      <% @camps.each do |camp| %> <%= render :partial => 'camps/camp_card',
+      locals: { camp: camp, display_desc: true, css_classes: "col-md-4" } %> <%
+      end %>
     </div>
-    <div id="filterrific_results" class="row">
-        <div class="camps_list">
-            <% @camps.each do |camp| %>
-                <%= render :partial => 'camps/camp_card', locals: { camp: camp, display_desc: true, css_classes: "col-md-4" } %>
-            <% end %>
-        </div>
-    </div>
+  </div>
 </div>
 
-<% if !@filterrific.tagged_with %>
-    <table id='table-view' style='display: none'>
-        <tr>
-            <th>Dream name</th>
-            <th>Monster actions</th>
-            <th>Approvers</th>
-        </tr>
-        <% @camps.count_all_flags.each do |camp_id, flag_sum| %>
+<% if app_setting('monsters') %>
+  <% if !@filterrific.tagged_with %>
+    <table id="table-view" style="display: none">
+      <tr>
+        <th>Dream name</th>
+        <th>Monster actions</th>
+        <th>Approvers</th>
+      </tr>
+      <% @camps.count_all_flags.each do |camp_id, flag_sum| %>
         <% @the_camp = @camps.where(['id = ?', camp_id])[0] %>
         <tr>
-            <% if @the_camp %>
-                <%= render :partial => 'camps/camp_row', locals: { camp: @the_camp, flag_sum: flag_sum } %>
-            <% end %>
+          <% if @the_camp %> <%= render :partial => 'camps/camp_row', locals: { camp:
+          @the_camp, flag_sum: flag_sum } %> <% end %>
         </tr>
-        <% end %>
+      <% end %>
     </table>
+  <% end %>
 <% end %>

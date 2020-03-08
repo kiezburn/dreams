@@ -1,7 +1,8 @@
 defaults: &defaults
   grant_value_for_currency: 2.64
+  monsters: <%= ENV['MONSTERS'] or false %>
   additional_info: <%= ENV['ADDITIONAL_INFO_FIELD'] or true %>
-  contact_phone: <%= ENV['CONTACT_PHONE_FIELD'] or true %>
+  contact_phone: ud<%= ENV['CONTACT_PHONE_FIELD'] or true %>
   description: <%= ENV['DESCRIPTION_FIELD'] or true %>
   electricity: <%= ENV['ELECTRICITY_FIELD'] or true %>
   light: <%= ENV['LIGHT_FIELD'] or true %>
@@ -12,7 +13,7 @@ defaults: &defaults
   cocreation: <%= ENV['COCREATION_FIELD'] or true %>
   neighbors: <%= ENV['NEIGHBORS_FIELD'] or true %>
   recycling: <%= ENV['RECYCLING_FIELD'] or false %>
-  budgetplan: <%= ENV['BUDGETPLAN_FIELD'] or true %>
+  budgetplan: <%= ENV['BUDGETPLAN_FIELD'] or false %>
   seeking_members: <%= ENV['SEEKING_MEMBERS_FIELD'] or true %>
   granting: <%= ENV['GRANTING_ENABLED'] or true %>
   budgeting: <%= ENV['BUDGETING_ENABLED'] or true %>

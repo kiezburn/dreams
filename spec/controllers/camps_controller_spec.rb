@@ -4,7 +4,8 @@ I18n.reload!
 
 describe CampsController do
   let(:email) { Faker::Internet.email }
-  let(:user) { User.create! email: email, password: Faker::Internet.password, ticket_id: '6687' }
+  let(:ticket) { Ticket.create! email: email }
+  let(:user) { User.create! email: email, password: Faker::Internet.password, ticket_id: ticket.id }
   let(:camp_leader) { Faker::Name.name }
 
   let(:camp_attributes){
