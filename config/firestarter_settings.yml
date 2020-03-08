@@ -24,7 +24,7 @@ defaults: &defaults
   add_to_list: <%= ENV['ADD_TO_LIST'] or true %>
   granting_active: <%= ENV['GRANTING_ACTIVE'] or true %>
   creation_sidebar_welcome: <%= ENV['CREATION_SIDEBAR'] or true %>
-  safetybag: <%= ENV['SAFETYBAG'] or true %>
+  safetybag: <%= ENV['SAFETYBAG'] or false %>
   dreamcrew: <%= ENV['DREAMCREW'] or true %>
   finace_messsage: true
   water: true
