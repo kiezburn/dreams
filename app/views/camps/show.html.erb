@@ -175,32 +175,51 @@
         <% end %>
 
         <% if app_setting("budgetplan") and @camp.budgetplan.present? %>
-            <div class="camp-description">
-                <b><%=t :form_budgetplan_label %></b>
-                <%= simple_format(@camp.budgetplan, class: "auto-#{@detector.direction(@camp.budgetplan)}" ) %>
-            </div>
+          <div class="camp-description">
+            <b><%=t :form_budgetplan_label %></b>
+            <%= simple_format(@camp.budgetplan, class: "auto-#{@detector.direction(@camp.budgetplan)}" ) %>
+          </div>
         <% end %>
 
         <% if @camp.budget_items.present? %>
-            <div class="camp-description">
-                <b><%=t :budget_label %></b>
-                <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col"><%=t :budget_description_label %></th>
-                        <th scope="col"><%=t :budget_amount_label %> (<%= app_setting("currency") %>)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <% @camp.budget_items.each do |budget_item| %>
-                    <tr>
-                        <td><%= budget_item.description %></td>
-                        <td><%= budget_item.amount %></td>
-                    </tr>
-                <% end %>
-                </tbody>
-                </table>
-            </div>
+          <div class="camp-description">
+            <b><%=t :budget_label %></b>
+            <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"><%=t :budget_description_label %></th>
+                <th scope="col"><%=t :budget_amount_label %> (<%= app_setting("currency") %>)</th>
+                <th scope="col">% of specified budget</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @camp.budget_items.each do |budget_item| %>
+              <tr>
+                <td><%= budget_item.description %></td>
+                <td><%= budget_item.amount %></td>
+                <td><%= percentage_of_maxbudget(budget_item) %>%</td>
+              </tr>
+            <% end %>
+            <tr>
+              <td><b>Specified budget</b></td>
+              <td><%= sum_of_budget(@camp) %></td>
+              <td>100%</td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+              <td>Minimum Funding:</td>
+              <td><%= @camp.minbudget_realcurrency %></td>
+              <td><%= divide_for_percentage(sum_of_budget(@camp), @camp.minbudget_realcurrency) %>%</td>
+            </tr>
+            <tr>
+              <td>Target Funding:</td>
+              <td><%= @camp.maxbudget_realcurrency %></td>
+              <td><%= divide_for_percentage(sum_of_budget(@camp), @camp.maxbudget_realcurrency) %>%</td>
+            </tr>
+            </tbody>
+            </table>
+          </div>
         <% end %>
 
         <% if app_setting("cocreation") and @camp.cocreation.present? %>
@@ -210,7 +229,7 @@
             </div>
         <% end %>
 
-        <% if user_signed_in? and !@camp.grantingtoggle %>
+        <% if user_signed_in? and !@camp.grantingtoggle and app_setting('monsters') %>
             <div class="flags-box">
                 <strong><%=t :flag_instruction_html %></strong>
                 <div class="flags row">
@@ -238,7 +257,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><%=t :what_is_this_title %></div>
                 <div class="panel-body">
-                    <p><%=t :what_is_this_text_html %></p>
+                    <%=t :what_is_this_text_html %>
                 </div>
             </div>
         <% end %>
