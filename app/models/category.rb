@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  EXPERIENCE = [
+  NAMES = [
     'Art installation',
     'Performance / Workshop',
     'Workshop space / Workshop place',
