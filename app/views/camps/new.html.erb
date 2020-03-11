@@ -9,11 +9,6 @@
     <%= t("form_basics_headline") %>
   </div>
 
-  <div class="combo col-md-7 col-xs-12" id="name" style='float: <%= I18n.t(:lang_direction) %>'>
-    <%= form.input :name, label: t("form_dream_name_label"),
-      maxlength: 64, input_html: {class: "form-control"} %>
-  </div>
-
   <div class="combo col-md-7 col-xs-12" id="name">
     Please self-assign your dream to one of the following categories.
     <br />
@@ -21,9 +16,14 @@
     <a href='https://talk.kiezburn.org/d/HQmGxOcb/manual-for-dreamers-read-this-if-you-want-to-submit-a-dream'>the manual
       for dreamers</a>.
     <%= form.fields_for :category do |ff| %>
-      <%= ff.input :name, label: 'category', collection: Category::NAMES,
+      <%= ff.input :name, label: 'Category', collection: Category::NAMES,
                           maxlength: 64, input_html: {class: "form-control"} %>
     <% end %>
+  </div>
+
+  <div class="combo col-md-7 col-xs-12" id="name" style='float: <%= I18n.t(:lang_direction) %>'>
+    <%= form.input :name, label: t("form_dream_name_label"),
+      maxlength: 64, input_html: {class: "form-control"} %>
   </div>
 
   <% if app_setting("multi_lang_support") %>
