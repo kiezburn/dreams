@@ -2,6 +2,9 @@ class HowcanihelpController < ApplicationController
   include CanApplyFilters
   before_action :apply_filters, only: :index
 
+  def found_a_bug
+  end
+
   def index
   end
 

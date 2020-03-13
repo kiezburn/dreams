@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   
   get '/rails/mailers' => "rails/mailers#index"
   get '/rails/mailers/*path' => "rails/mailers#preview"
+  get '/found-a-bug' => 'howcanihelp#found_a_bug'
 
   get '*unmatched_route' => 'application#not_found'
 end

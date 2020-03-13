@@ -666,7 +666,8 @@ body {
   margin-bottom: 2em;
 }
 
-#camp-form {
+#camp-form,
+.bugs {
   a {
     text-decoration: underline;
     color: $c_pinky;
@@ -820,4 +821,11 @@ body {
     font-size: larger;
     display: block;
   }
+}
+.bug_attack {
+  font-size: 8rem;
+  text-align: center;
+}
+.text-center {
+  text-align: center;
 }
