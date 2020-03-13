@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :created_camps, class_name: :Camp
   has_many :created_grants, class_name: :Grant
 
+  before_save :set_grants_to_zero
+
   schema_validations whitelist: [:id, :created_at, :updated_at, :encrypted_password]
 
   def is_member?
@@ -34,7 +36,7 @@ class User < ApplicationRecord
     for rolename in info.all["Role"]
       r = Role.where(name: rolename).first_or_create!
       if rolename.eql? "Borderland 2019 Membership" and u.grants.nil? # TODO multi event support, hacky
-        u.grants = 10
+        u.grants = 0
       end
       u.roles << r
     end
@@ -52,4 +54,9 @@ class User < ApplicationRecord
     camp.users.find_by(email: self.email).present?
   end
 
+  private
+
+  def set_grants_to_zero
+    self.grants = 0
+  end
 end
