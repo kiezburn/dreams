@@ -6,7 +6,7 @@
   end
 %>
 
-<% if lockdown_info.present? %>
+<% if lockdown_info.present? and lockdown_info[1] < 14.days.from_now %>
     <div class="row alignedrow">
     <p class="notice" style='float: <%=t :lang_direction %>' dir='<%=t :html_direction %>'>
         <%= t(:'dont_miss_out.banner', time: time_left, action: action) %>
