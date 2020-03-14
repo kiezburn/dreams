@@ -52,53 +52,57 @@
                 <div class='dream_main_image' style="background: linear-gradient(rgba(20,20,20, .7),rgba(20,20,20, .7)),url('<%= @main_image %>') no-repeat center center fixed">
             <% end %>
             <div class="dream_main_text">
-                <div class="center-dream">
-                    <p>
-                        <%= @camp.display_name %>
-                        <% if user_signed_in? %>
-                            <%= link_to :toggle_favorite_camp, method: :patch, class: (@camp.favorite_users.include?(current_user) ? 'favorite-button starred' : 'favorite-button'), style: "position: absolute;", :remote => true do %>
-                                <span id="star-icon" class="glyphicon <%= @camp.favorite_users.include?(current_user) ? 'glyphicon-star' : 'glyphicon-star-empty' %>"></span>
-                            <% end %>
-                        <% end %>
-                    </p>
-                    <p class='dream_main_creator'><%= @camp.contact_name %></p>
-
-
-                    <!-- Granting system -->
-                    <% if app_setting("granting_active") and @camp.minbudget.present? and @camp.maxbudget.present? %>
-
-                        <li>
-                            <div class='budget-info'>
-                                <div class='budget-box'>
-                                    <h3><%= @camp.grants_received %></h3><br><h4><%=t :funded %></h4>
-                                </div>
-                                <div class='budget-box'>
-                                    <h3><%= @camp.minbudget %></h3><br><h4><%=t :min_funded %></h4>
-                                </div>
-                                <div class='budget-box'>
-                                    <h3><%= @camp.maxbudget %></h3><br><h4><%=t :max_funded %></h4>
-                                </div>
-
-                                <!-- If user grants are > 0, allow user to asign them -->
-                                <% if @camp.grantingtoggle %>
-                                    <% if current_user && current_user.grants? && current_user.grants > 0 && !@camp.fullyfunded %>
-
-                                        <button type="button" class="btn btn-success donate-button" data-toggle="modal" data-target="#donateModal">
-                                          <%= t(:i_gift_thee_grants) %>
-                                        </button>
-                                    <% end %>
-                                <% end %>
-
-                                <!-- Only if never got grants and not opened for granting -->
-                                <% if !@camp.grantingtoggle and @camp.grants_received <= 0%>
-                                    <h3 class='budget-not-opened'>
-                                        <%=t :granting_not_enabled %>
-                                    </h3>
-                                <% end %>
-                            </div>
-                        </li>
+              <div class="center-dream">
+                <p>
+                  <%= @camp.display_name %>
+                  <% if user_signed_in? %>
+                    <%= link_to :toggle_favorite_camp, method: :patch, class: (@camp.favorite_users.include?(current_user) ? 'favorite-button starred' : 'favorite-button'), style: "position: absolute;", :remote => true do %>
+                      <span id="star-icon" class="glyphicon <%= @camp.favorite_users.include?(current_user) ? 'glyphicon-star' : 'glyphicon-star-empty' %>"></span>
                     <% end %>
-                    <!-- End of granting block -->
+                  <% end %>
+                </p>
+                <% if @camp.category %>
+                  <p class='dream_category_name'>
+                    Category: <%= @camp.category.name %>
+                  </p>
+                <% end %>
+                <p class='dream_main_creator'>
+                  <%= @camp.contact_name %>
+                </p>
+                  <!-- Granting system -->
+                  <% if app_setting("granting_active") and @camp.minbudget.present? and @camp.maxbudget.present? %>
+                    <li>
+                      <div class='budget-info'>
+                          <div class='budget-box'>
+                              <h3><%= @camp.grants_received %></h3><br><h4><%=t :funded %></h4>
+                          </div>
+                          <div class='budget-box'>
+                              <h3><%= @camp.minbudget %></h3><br><h4><%=t :min_funded %></h4>
+                          </div>
+                          <div class='budget-box'>
+                              <h3><%= @camp.maxbudget %></h3><br><h4><%=t :max_funded %></h4>
+                          </div>
+
+                          <!-- If user grants are > 0, allow user to asign them -->
+                          <% if @camp.grantingtoggle %>
+                              <% if current_user && current_user.grants? && current_user.grants > 0 && !@camp.fullyfunded %>
+
+                                  <button type="button" class="btn btn-success donate-button" data-toggle="modal" data-target="#donateModal">
+                                    <%= t(:i_gift_thee_grants) %>
+                                  </button>
+                              <% end %>
+                          <% end %>
+
+                          <!-- Only if never got grants and not opened for granting -->
+                          <% if !@camp.grantingtoggle and @camp.grants_received <= 0%>
+                              <h3 class='budget-not-opened'>
+                                  <%=t :granting_not_enabled %>
+                              </h3>
+                          <% end %>
+                      </div>
+                    </li>
+                  <% end %>
+                  <!-- End of granting block -->
                 </div>
             </div>
             </div> <!-- /div Closing the upper if !-->
@@ -121,6 +125,13 @@
     <% end %>
 
     <!-- Creation text content -->
+      <% if @camp.category %>
+        <div class="camp-description">
+          <b>Category</b>
+          <%= simple_format(@camp.category.name) %>
+        </div>
+      <% end %>
+
         <div class="camp-description">
             <b><%=t :form_summary %></b>
             <% @subtitle = (app_setting('multi_lang_support') and @camp.en_subtitle.present? and I18n.locale.to_s == 'en')? @camp.en_subtitle : @camp.subtitle %>

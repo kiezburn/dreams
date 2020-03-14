@@ -48,9 +48,6 @@
 <br/>
 <%= simple_form_for @camp, :html => {:dir => I18n.t(:html_direction), :id => 'camp-form' } do |form| %>
   <%= render 'dont_miss_out', except: nil %>
-  <div class="pink-div">
-    <%= t("press_to_edit") %>
-  </div>
   <div class="header-heading">
     <%= t("form_basics_headline_last_step") %>
   </div>
@@ -61,6 +58,12 @@
     </div>
     <blockquote>
       <%= best_in_place_if @can_edit, @camp, :name, html_attrs: {maxlength: 64, class: "form-control"} %>
+    </blockquote>
+  </div>
+  <div class="combo" id="name">
+    <%= form.label 'Category' %>
+    <blockquote>
+      <%= @camp.category.name %>
     </blockquote>
   </div>
   <% if app_setting("multi_lang_support") %>
@@ -287,11 +290,9 @@
         <% end %>
     </div>
     <% if @can_edit %>
-        <div class="row links col-xs-12">
-            <%= link_to_add_association t('add_new_budget_item'), form, :budget_items, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-success', id: 'add-new-budget-item' %>
-            <br/>
-            <br/>
-        </div>
+      <div class="row links col-xs-12">
+        <%= link_to_add_association t('add_new_budget_item'), form, :budget_items, render_options: { locals: { camp_id: @camp.id } }, class: 'btn btn-success', id: 'add-new-budget-item' %>
+      </div>
     <% end %>
   <% end %>
 <% end %>

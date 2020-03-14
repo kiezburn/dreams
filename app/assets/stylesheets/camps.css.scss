@@ -161,6 +161,10 @@ $main-image-height: 550px;
       font-weight: bold;
     }
 
+    p.dream_category_name {
+      font-size: 20px;
+    }
+
     p.dream_main_creator {
       font-size: 34px;
       font-weight: normal;
@@ -579,7 +583,7 @@ body {
   }
 
   .dream_main_text {
-    div.center-dream {
+    .center-dream {
       width: 94%;
     }
   }

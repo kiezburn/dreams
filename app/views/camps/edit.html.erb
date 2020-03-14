@@ -1,4 +1,3 @@
-
 <% if (current_user && (current_user == @camp.creator || current_user.is_crewmember(@camp))) %>
   <% @can_edit = true %>
 <% end %>
