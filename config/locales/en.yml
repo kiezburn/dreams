@@ -249,14 +249,16 @@ en:
     awarded leftover Dream money during a redistribution process</a>.
 
   form_artgrants_headline: Dreams grant information
-  form_artgrants_text_html:
+  form_artgrants_text_html: >
     If you're not looking for a dreams grant, leave these fields blank.
     <br/><br/>
-    Only projects that take place at Kiez Burn qualify. Every 2019 Kiez Burn ticket holder will have 10 dream tokens to hand out to projects of their choice.
+    Only projects that take place at Kiez Burn qualify. Every 2020 Kiez Burn ticket holder will receive dream tokens to hand out to projects of their choice.
   form_minigrants_realcurrency_label: "Minumum number of grants needed:"
-  form_minigrants_realcurrency_guidetext_html:
-    Your Minimum is the amount of money you NEED in order to bring the project. Once your project collected
-    enough votes to pass the minimum threshold, you will be notified, and your project is sure to receive funding. Below this minimum level, you will not receive funding.
+  form_minigrants_realcurrency_guidetext_html: >
+    Your Minimum is the amount of money you NEED in order to bring the project.
+    Once your project collected enough votes to pass the minimum threshold, you
+    will be notified, and your project is sure to receive funding. Below this
+    minimum level, you will not receive funding.
   form_maxigrants_realcurrency_label: "Grants needed to fully fund dream:"
   form_maxigrants_realcurrency_guidetext_html: "Your Maximum is how much you need to realize the perfect version of your project. Any money you receive after having passed the minimum can be used for your project"
   form_budgetplan_label: "Please add your budget proposal in the box below"

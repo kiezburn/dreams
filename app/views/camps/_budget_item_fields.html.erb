@@ -1,4 +1,4 @@
-<div class="nested-fields panel panel-default col-md-7">
+<div class="col-md-7 panel panel-default">
   <div class="panel-body">
     <%= f.label :description %>
     <% if (@can_edit) %>
@@ -18,4 +18,6 @@
       <%= link_to_remove_association t("remove_budget_item"), f, class: 'remove_person fa fa-trash' %>
     <% end %>
   </div>
+</div>
+<div class="col-md-5">
 </div>
