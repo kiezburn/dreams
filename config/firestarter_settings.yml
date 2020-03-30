@@ -4,19 +4,19 @@ defaults: &defaults
   additional_info: <%= ENV['ADDITIONAL_INFO_FIELD'] or true %>
   contact_phone: ud<%= ENV['CONTACT_PHONE_FIELD'] or true %>
   description: <%= ENV['DESCRIPTION_FIELD'] or true %>
-  electricity: <%= ENV['ELECTRICITY_FIELD'] or true %>
-  light: <%= ENV['LIGHT_FIELD'] or true %>
-  fire: <%= ENV['FIRE_FIELD'] or true %>
-  noise: <%= ENV['NOISE_FIELD'] or true %>
+  electricity: <%= ENV['ELECTRICITY_FIELD'] or false %>
+  light: <%= ENV['LIGHT_FIELD'] or false %>
+  fire: <%= ENV['FIRE_FIELD'] or false %>
+  noise: <%= ENV['NOISE_FIELD'] or false %>
   nature: <%= ENV['NATURE_FIELD'] or false %>
-  moop: <%= ENV['MOOP_FIELD'] or true %>
-  cocreation: <%= ENV['COCREATION_FIELD'] or true %>
-  neighbors: <%= ENV['NEIGHBORS_FIELD'] or true %>
+  moop: <%= ENV['MOOP_FIELD'] or false %>
+  cocreation: <%= ENV['COCREATION_FIELD'] or false %>
+  neighbors: <%= ENV['NEIGHBORS_FIELD'] or false %>
   recycling: <%= ENV['RECYCLING_FIELD'] or false %>
   budgetplan: <%= ENV['BUDGETPLAN_FIELD'] or false %>
-  seeking_members: <%= ENV['SEEKING_MEMBERS_FIELD'] or true %>
-  granting: <%= ENV['GRANTING_ENABLED'] or true %>
-  budgeting: <%= ENV['BUDGETING_ENABLED'] or true %>
+  seeking_members: <%= ENV['SEEKING_MEMBERS_FIELD'] or false %>
+  granting: <%= ENV['GRANTING_ENABLED'] or false %>
+  budgeting: <%= ENV['BUDGETING_ENABLED'] or false %>
   currency: <%= ENV['CURRENCY'] or "EUR" %>
   # Only people with "Ticket records of phone and email can register"
   user_authentication_codes: <%= ENV['USER_AUTHENTICATION_CODES'] or false %>
@@ -26,10 +26,10 @@ defaults: &defaults
   creation_sidebar_welcome: <%= ENV['CREATION_SIDEBAR'] or true %>
   safetybag: <%= ENV['SAFETYBAG'] or false %>
   dreamcrew: <%= ENV['DREAMCREW'] or true %>
-  finace_messsage: true
-  water: true
+  finace_messsage: false
+  water: false
   registration_requires_ticket_with_matching_email: <%= ENV['REGISTRATION_REQUIRES_TICKET_WITH_MATCHING_EMAIL'] or false %>
-  granting_active: true
+  granting_active: false
   footer_text: true
   footer_logo: true
   creation_sidebar_welcome: true

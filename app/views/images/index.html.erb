@@ -23,19 +23,19 @@
 
         </div>
 
-        <%= form_tag camp_images_path(camp_id: @camp.id), method: :post, multipart: true do %>
-        <div class="row">
-            <%= label_tag :attachment, t(:upload_button) %>
-            <br><br>
-        </div>
+      <%= form_tag camp_images_path(camp_id: @camp.id), method: :post, multipart: true do %>
+      <div class="row">
+        <%= label_tag :attachment, t(:upload_button) %>
+        <br><br>
+      </div>
 
-        <div class="row">
-            <div>
-                <%= file_field_tag :attachment %>
-                <br><br>
-                <%= submit_tag t(:upload_button), class: 'btn btn-success camp-button' %>
-            </div>
+      <div class="row">
+        <div>
+          <%= file_field_tag :attachment %>
+          <br><br>
+          <%= submit_tag t(:upload_button), class: 'btn btn-success camp-button' %>
         </div>
+      </div>
     <% end %>
 </div>
     <div class="col-md-4">

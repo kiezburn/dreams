@@ -22,8 +22,7 @@
 
 <% if current_user && (@camp.creator == current_user or current_user.admin or current_user.guide or current_user.is_crewmember(@camp))%>
 	<%= render 'form' %>
-
-    <div id="footer-bar" dir=<%=t :html_direction %> style=<%= "text-align:" + I18n.t('reverse_direction')%>>
+  <div id="footer-bar" dir=<%=t :html_direction %> style=<%= "text-align:" + I18n.t('reverse_direction')%>>
     <%if current_user.admin or current_user.guide %>
       <%if @just_view %>
         <%= link_to t(:open_dream_for_guide_edit_view_only), edit_camp_path(id: @camp.id), class: "btn btn-success" %>
@@ -32,15 +31,14 @@
       <% end %>
     <% end %>
 
-      <%if @can_edit %>
-        <button class="btn btn-success" id="save-camp"><%= t('save_camp') %></button>
-        <%= t('or_text') %>
-        <button class="btn btn-success" id="done-camp"><%= t('done_camp') %></button>
-      <% else %>
-        <%= link_to t('back_to_dream'), camp_path(@camp), class: "btn btn-success" %>
-      <% end %>
-
-    </div>
+    <%if @can_edit %>
+      <button class="btn btn-success" id="save-camp"><%= t('save_camp') %></button>
+      <%= t('or_text') %>
+      <button class="btn btn-success" id="done-camp"><%= t('done_camp') %></button>
+    <% else %>
+      <%= link_to t('back_to_dream'), camp_path(@camp), class: "btn btn-success" %>
+    <% end %>
+  </div>
 <% else %>
-    <p class="alert">Only the original creator can edit this page.</p>
+  <p class="alert">Only the original creator can edit this page.</p>
 <% end %>

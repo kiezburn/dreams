@@ -1,5 +1,4 @@
 <script>
-  
   // Iterate checkboxes with data-show attributes and show/hide their target divs
   $(document).ready(function() {
     $("[data-show]").change((e) => {
@@ -22,7 +21,6 @@
 </script>
 <% if !app_setting("disable_edit_safetybag") or (current_user && (current_user.guide || current_user.admin)) %>
   <script>
-    
     $(function() { $(".hide_show_safetyfile").click(function(){
     if($('.safetybar-info').css('display') === "none") {
       $('.safetybar-info').fadeIn();
@@ -30,7 +28,6 @@
       $('.safetybar-info').fadeOut();
       }
     })});
-
   </script>
 <% else %>
   <script>
@@ -58,12 +55,6 @@
     </div>
     <blockquote>
       <%= best_in_place_if @can_edit, @camp, :name, html_attrs: {maxlength: 64, class: "form-control"} %>
-    </blockquote>
-  </div>
-  <div class="combo" id="name">
-    <%= form.label 'Category' %>
-    <blockquote>
-      <%= @camp.category&.name %>
     </blockquote>
   </div>
   <% if app_setting("multi_lang_support") %>
@@ -246,7 +237,7 @@
 
   <% if app_setting("granting") %>
     <div class="header-heading">
-        <%= t("form_artgrants_headline") %>
+      <%= t("form_artgrants_headline") %>
     </div>
   <% end %>
   <div class="combo" id="artgrants"></div>
