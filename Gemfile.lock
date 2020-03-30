@@ -177,6 +177,7 @@ GEM
       actionpack (>= 4.1)
       activesupport (>= 4.1)
     hashie (3.6.0)
+    hirb (0.7.3)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -483,6 +484,7 @@ DEPENDENCIES
   graphiql-rails (= 1.5.0)
   graphql (= 1.8.13)
   haml
+  hirb
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
